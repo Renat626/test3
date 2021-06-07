@@ -13,21 +13,21 @@ console.log(app.get("views"));
 // app.use(express.static(path.join(__dirname, "public")))
 
 app.get("/", (req, res) => {
-    res.render("index", {title: "Main page1", menu: {
-        "/about": "About us1",
-        "/contact": "Contact1"}})
+    res.render("index", {title: "Main page", menu: {
+        "/about": "About us",
+        "/contact": "Contact"}})
 })
 
 app.get("/about", (req, res) => {
-    res.render("about", {title: "About us page1", menu: {
-        "/": "Main page2",
-        "/contact": "Contact2"}})
+    res.render("about", {title: "About us page", menu: {
+        "/": "Main page",
+        "/contact": "Contact"}})
 })
 
 app.get("/contact", (req, res) => {
-    res.render("contact", {title: "Contact page1", menu: {
-        "/": "Main page3",
-        "/about": "About us3"}})
+    res.render("contact", {title: "Contact page", menu: {
+        "/": "Main page",
+        "/about": "About us"}})
 })
 
 app.listen(3000, () => {
