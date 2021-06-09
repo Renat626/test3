@@ -30,6 +30,11 @@ app.get("/contact", (req, res) => {
         "/about": "About us"}})
 })
 
+app.get("/test", (req, res, next) => {
+    next()
+    res.send("test")
+})
+
 app.listen(3000, () => {
     console.log(`Порт ${PORT}`);
 });
