@@ -18,9 +18,6 @@ router.get("/contact", (req, res) => {
         "/about": "About us"}})
 })
 
-// app.get("/form", (req, res) => {
-//     res.render("form")
-// })
 router.post("/form", userController.createUser);
 router.get("/form", userController.showForm);
 
