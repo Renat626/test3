@@ -1,15 +1,14 @@
 const express = require("express");
 const path = require("path");
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+const userRouter = require("./routes/user_routes");
 
 const PORT = process.env.PORT || 3000;
 
 const app = express();
 
 app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "ejs")); 
-console.log(app.get("view engine"));
-console.log(app.get("views"));
+app.set("views", path.join(__dirname, "ejs"));
 
 // app.use(express.static(path.join(__dirname, "public")))
 
@@ -37,11 +36,15 @@ app.get("/form", (req, res) => {
     res.render("form")
 })
 
-app.post("/form", urlencodedParser, (req, res) => {
-    if (!req.body) return res.statusCode(400);
-    res.render("formSend", {data: req.body});
-})
+app.use("/", userRouter);
+
+// app.post("/form", urlencodedParser, (req, res) => {
+//     if (!req.body) return res.statusCode(400);
+//     res.render("formSend", {data: req.body});
+// })
 
 app.listen(3000, () => {
     console.log(`Порт ${PORT}`);
 });
+
+module.exports = urlencodedParser;
